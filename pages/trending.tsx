@@ -1,5 +1,5 @@
 import HomeLayout from "@/components/layouts/home";
-import PostsWrapper from "@/components/layouts/home/posts-wrapper";
+import PostWrapper from "@/components/layouts/home/posts-wrapper";
 import axios from "axios";
 interface postProps {
   data: {
@@ -37,12 +37,13 @@ interface postProps {
     };
   }[];
   meta: any;
+  host: string;
 }
 
-const Home = ({ posts }: { posts: postProps }) => {
+const Trending = ({ posts }: { posts: postProps }) => {
   return (
     <HomeLayout isHome={true}>
-      <PostsWrapper posts={posts.data} sort="latest" />
+      <PostWrapper {...posts} posts={posts.data} sort="trending" />
     </HomeLayout>
   );
 };
@@ -52,10 +53,10 @@ export async function getStaticProps() {
   const data = await res.data;
   return {
     props: {
-      posts: { ...data },
+      posts: { ...data, host },
     },
     revalidate: 60,
   };
 }
 
-export default Home;
+export default Trending;
