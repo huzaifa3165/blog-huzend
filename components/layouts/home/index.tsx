@@ -40,7 +40,8 @@ const HomeLayout = (props: { children: JSX.Element; isHome: boolean }) => {
   useEffect(() => {
     if (user) {
       setProfileImage(
-        "http://localhost:1337/uploads/avatar_gf4fb79e7c_640_654b6b917d.png"
+        process.env.STRAPI_HOST +
+          "/uploads/avatar_gf4fb79e7c_640_654b6b917d.png"
       );
     } else {
       setProfileImage(
