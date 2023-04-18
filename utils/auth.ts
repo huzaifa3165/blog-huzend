@@ -4,8 +4,9 @@ import jwt from "jsonwebtoken";
 
 export const getTokenWithCred = async (email: string, password: string) => {
   try {
+    const host = process.env.STRAPI_HOST;
     const res = await axios.post(
-      "http://127.0.0.1:1337/api/auth/local",
+      host + "/api/auth/local",
       {
         identifier: email,
         password: password,

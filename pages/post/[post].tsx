@@ -62,7 +62,8 @@ const Post = ({ post }: { post: postProps }) => {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch("http://127.0.0.1:1337/api/posts");
+  const host = process.env.STRAPI_HOST;
+  const res = await fetch(host + "/api/posts");
   const posts = await res.json();
   const paths = posts.data.map((post: any) => ({
     params: { post: post.attributes.slug },
@@ -70,7 +71,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 export async function getStaticProps({ params }: any) {
-  const host = "http://127.0.0.1:1337";
+  const host = process.env.STRAPI_HOST;
   const res = await fetch(
     `${host}/api/posts?filters[slug][$eq]=${params.post}&populate=*`
   );

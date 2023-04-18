@@ -48,7 +48,7 @@ const Trending = ({ posts }: { posts: postProps }) => {
   );
 };
 export async function getStaticProps() {
-  const host = "http://127.0.0.1:1337";
+  const host = process.env.STRAPI_HOST;
   const res = await axios.get(`${host}/api/posts?populate=*`);
   const data = await res.data;
   return {
