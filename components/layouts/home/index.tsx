@@ -104,13 +104,10 @@ const HomeLayout = (props: { children: JSX.Element; isHome: boolean }) => {
               </button>
               <Link href="/" className="flex ml-2 md:mr-24">
                 <img
-                  src={`${process.env.STRAPI_HOST}/uploads/Untitled_design_7_cc7c57a7c7.png`}
-                  className="h-9 mr-3"
-                  alt="Huzend"
+                  src={`https://raw.githubusercontent.com/huzaifa3165/huzaifa3165/main/muhammadHuzaifa1.png`}
+                  className="h-7 mr-3"
+                  alt="Muhammad Huzaifa"
                 />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                  Huzend
-                </span>
               </Link>
             </div>
             {/* <div

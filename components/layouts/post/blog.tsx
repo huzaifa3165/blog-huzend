@@ -58,7 +58,7 @@ const Blog = (props: BlogProps) => {
       <div className="flex items-center space-x-4 mb-6">
         <img
           className="w-10 h-10 rounded-full"
-          src={`${props.host}${props.authorImage}`}
+          src={props.authorImage}
           alt={props.title}
         />
         <div className="font-medium dark:text-white">
@@ -68,8 +68,8 @@ const Blog = (props: BlogProps) => {
 
       <img
         className=" h-auto max-w-full rounded-xl mb-6"
-        src={`${props.host}${props.image}`}
-        alt={`${props.title}`}
+        src={props.image}
+        alt={props.title}
       />
 
       <div
