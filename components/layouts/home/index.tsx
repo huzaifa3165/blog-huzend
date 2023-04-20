@@ -9,7 +9,6 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { getToken, removeToken } from "@/utils/auth";
-import { getUserData } from "@/utils/auth";
 import axios from "axios";
 import useUser from "@/context/user/UserContext";
 
@@ -40,8 +39,7 @@ const HomeLayout = (props: { children: JSX.Element; isHome: boolean }) => {
   useEffect(() => {
     if (user) {
       setProfileImage(
-        process.env.STRAPI_HOST +
-          "/uploads/avatar_gf4fb79e7c_640_654b6b917d.png"
+        "https://assets.materialup.com/uploads/5b045613-638c-41d9-9b7c-5f6c82926c6e/preview.png"
       );
     } else {
       setProfileImage(
@@ -250,7 +248,7 @@ const HomeLayout = (props: { children: JSX.Element; isHome: boolean }) => {
 
                         <li>
                           <Link
-                            href="/signup"
+                            href="/signin"
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                             role="menuitem"
                           >
